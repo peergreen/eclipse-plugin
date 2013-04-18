@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+<!--
+The value of the attribute launcherDelegate must be a fully qualified name of a Java class that extends org.eclipse.pde.launcher.AbstractPDELaunchConfiguration.
+If the launcher is to provide its own source lookup order, then the method setDefaultSourceLocator should be overridden.
+The value of the attribute initializer must be a fully qualified name of a Java class that extends org.eclipse.launcher.OSGiLaunchConfigurationInitializer.
+ -->
+
+   <extension
+         point="org.eclipse.pde.ui.osgiFrameworks">
+   <framework
+      id="com.peergreen.eclipse.osgi"
+      name="Peergreen Server"
+      launcherDelegate="com.peergreen.eclipse.osgi.PeergreenLaunchConfiguration"
+       />
+   </extension>
+   <extension
+         point="org.eclipse.core.runtime.preferences">
+   </extension>
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            class="com.peergreen.eclipse.osgi.preferences.PeergreenPreferencePage"
+            id="com.peergreen.eclipse.osgi.preferences.PeergreenPreferencePage"
+            name="Peergreen Server">
+      </page>
+   </extension>
+   <extension
+         point="org.eclipse.core.runtime.preferences">
+      <initializer
+            class="com.peergreen.eclipse.osgi.preferences.PreferenceInitializer">
+      </initializer>
+   </extension>
+    <!--  initializer="com.peergreen.eclipse.osgi.LaunchConfigurationInitializer" -->
+
+
+</plugin>

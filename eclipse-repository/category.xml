@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/com.peergreen.eclipse.osgi.plugin.feature_1.0.0.qualifier.jar" id="com.peergreen.eclipse.osgi.plugin.feature" version="1.0.0.qualifier">
+      <category name="peergreen-eclipse-repository"/>
+   </feature>
+   <category-def name="peergreen-eclipse-repository" label="Peergreen Eclipse Repository">
+      <description>
+         Eclipse plugin for Peergreen Server.
+      </description>
+   </category-def>
+</site>
