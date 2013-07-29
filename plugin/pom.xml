@@ -29,8 +29,8 @@
   <dependencies>
     <dependency>
       <groupId>com.peergreen.community</groupId>
-      <artifactId>peergreen-server-light</artifactId>
-      <version>1.0.0-M1</version>
+      <artifactId>peergreen-kernel</artifactId>
+      <version>1.0.0-M2</version>
     </dependency>
   </dependencies>
 
@@ -50,7 +50,7 @@
               <artifactItems>
                 <artifactItem>
                   <groupId>com.peergreen.community</groupId>
-                  <artifactId>peergreen-server-light</artifactId>
+                  <artifactId>peergreen-kernel</artifactId>
                   <overWrite>true</overWrite>
                   <outputDirectory>servers</outputDirectory>
                 </artifactItem>
