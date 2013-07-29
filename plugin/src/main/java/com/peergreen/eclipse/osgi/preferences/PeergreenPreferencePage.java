@@ -255,6 +255,11 @@ public class PeergreenPreferencePage extends PreferencePage implements IWorkbenc
                 peergreenserverEntry = new PeergreenServerEntry(serverName, version);
                 serversConfiguration.addEntry(peergreenserverEntry);
             } else {
+                int statusCode = warningMessage("This will upgrade current entry named '" + serverName + "' from version '" + peergreenserverEntry.getVersion() + "' to '" + version + "'");
+                // Skip upgrade if not wanted
+                if (SWT.NO == statusCode) {
+                    return;
+                }
                 // update version
                 peergreenserverEntry.setVersion(version);
             }
@@ -272,11 +277,20 @@ public class PeergreenPreferencePage extends PreferencePage implements IWorkbenc
 
     }
 
-    protected void errorMessage(String message) {
+
+    protected int warningMessage(String message) {
+        MessageBox messageDialog = new MessageBox(getShell(), SWT.ICON_WARNING | SWT.YES | SWT.NO);
+        messageDialog.setText("Warning");
+        messageDialog.setMessage(message);
+        return messageDialog.open();
+    }
+
+
+    protected int errorMessage(String message) {
         MessageBox messageDialog = new MessageBox(getShell(), SWT.ERROR);
         messageDialog.setText("Error message");
         messageDialog.setMessage(message);
-        int returnCode = messageDialog.open();
+        return messageDialog.open();
     }
 
 
