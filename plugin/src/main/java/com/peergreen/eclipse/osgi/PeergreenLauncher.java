@@ -103,9 +103,9 @@ public class PeergreenLauncher {
 
         // Load the Peergreen framework Factory
         ClassLoader classLoader = PeergreenLauncher.class.getClassLoader();
-        Class<FrameworkFactory> peergreenFactory;
+        Class<? extends FrameworkFactory> peergreenFactory;
         try {
-            peergreenFactory = (Class<FrameworkFactory>) classLoader.loadClass(FRAMEWORK_FACTORY);
+            peergreenFactory = classLoader.loadClass(FRAMEWORK_FACTORY).asSubclass(FrameworkFactory.class);
         } catch (ClassNotFoundException e) {
            throw new PeergreenLauncherException(String.format("Unable to load %s as Framework factory", FRAMEWORK_FACTORY), e);
         }
